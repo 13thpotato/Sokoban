@@ -637,6 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearText: {fileID: 1195872553}
+  nextSceneDelay: 2
 --- !u!4 &560716131
 Transform:
   m_ObjectHideFlags: 0
