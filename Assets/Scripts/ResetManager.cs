@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 
-//キーボードのRでステージの状態をリセットします
+//キーボードのRでステージの状態をリセット
 public class RestartManager : MonoBehaviour
 {
     void Update()

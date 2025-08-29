@@ -32,7 +32,8 @@ public class PlayerMove : MonoBehaviour
                     Collider2D block = Physics2D.OverlapPoint(boxTarget);
                     if (block == null)
                     {
-                        // ” ‚ð‰Ÿ‚·
+                        // SE‚ð‚È‚ç‚µ‚Ä” ‚ð‰Ÿ‚·
+                        hit.GetComponent<BoxSE>()?.PlayPushSE();
                         hit.transform.position = boxTarget;
                         StartCoroutine(MoveToTarget(target));
                     }

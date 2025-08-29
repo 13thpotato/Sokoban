@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+
 public class GoalChecker : MonoBehaviour
 {
     public GameObject clearText;
@@ -48,8 +49,7 @@ public class GoalChecker : MonoBehaviour
         else
         {
             Debug.Log("最終ステージをクリアしました！");
-            // 最後のシーンだった場合 → 最初に戻す
-            SceneManager.LoadScene(0); 
+            SceneManager.LoadScene("ClearScene"); // クリア画面へ; 
         }
     }
 }
