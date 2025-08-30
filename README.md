@@ -3,7 +3,7 @@
 Unityで開発した、倉庫番風のシンプルな2Dパズルゲームです。プレイヤーはキャラクターを操作し、ステージ内のすべての箱をゴール地点に押して運びます。
 
 ## ゲーム画面
-<img width="1920" height="1080" alt="スクリーンショット " src="https://github.com/user-attachments/assets/fb90ffbd-a398-404c-b98a-540a3a186ce2" />
+<img width="1920" height="1080" alt="スクリーンショット " src="https://github.com/user-attachments/assets/13013791-e600-48b7-9d74-d159510f20b6" />
 
 
 ## 使用技術
