@@ -5,7 +5,10 @@ public class PlayerMove : MonoBehaviour
     public float moveDistance = 1f;
     public float moveSpeed = 5f;
 
-    private bool isMoving = false;
+    public bool isMoving = false;
+    public bool canWarp = false;
+    private Coroutine moveCoroutine;
+
     private Vector3 targetPos;
 
     void Update()
@@ -30,23 +33,28 @@ public class PlayerMove : MonoBehaviour
                     Vector3 boxTarget = target + dir;
                     // 箱の先に何かあるか？（壁や別の箱など）
                     Collider2D block = Physics2D.OverlapPoint(boxTarget);
-                    if (block == null)
+                    if (block == null || block.CompareTag("WarpTile"))
                     {
                         // SEをならして箱を押す
                         hit.GetComponent<BoxSE>()?.PlayPushSE();
                         hit.transform.position = boxTarget;
-                        StartCoroutine(MoveToTarget(target));
+                        moveCoroutine = StartCoroutine(MoveToTarget(target));
                     }
                     // else: 押せないので何もしない
                 }
-                else if (hit == null)
+                //何もないかタイルである場合
+                else if (hit == null || hit.CompareTag("WarpTile") || hit.CompareTag("FallTile"))
                 {
                     // プレイヤーだけ移動
-                    StartCoroutine(MoveToTarget(target));
+                    moveCoroutine = StartCoroutine(MoveToTarget(target));
+                    //ワープフラグオン
+                    canWarp = true;
                 }
+
             }
         }
     }
+
 
     System.Collections.IEnumerator MoveToTarget(Vector3 target)
     {
@@ -61,4 +69,20 @@ public class PlayerMove : MonoBehaviour
         transform.position = target;
         isMoving = false;
     }
+
+    public void WarpTo(Vector3 destination)
+    {
+        // 移動コルーチンを止める
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
+        }
+
+        // 強制移動
+        transform.position = destination;
+        isMoving = false;
+    }
 }
+
+

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//タイトルに戻る
+//クリア画面からタイトルに戻ります
 public class ClearManager : MonoBehaviour
 {
     public void ReturnToTitle()

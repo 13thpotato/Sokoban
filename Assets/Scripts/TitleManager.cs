@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//タイトルから最初のステージに移動します
 public class TitleManager : MonoBehaviour
 {
     public void StartGame()

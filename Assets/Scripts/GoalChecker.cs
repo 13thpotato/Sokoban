@@ -15,6 +15,7 @@ public class GoalChecker : MonoBehaviour
         GameObject[] goals = GameObject.FindGameObjectsWithTag("Goal");
         int correctBoxes = 0;
 
+        //各ゴールの上に箱が乗っているかを判定
         foreach (GameObject goal in goals)
         {
             Collider2D hit = Physics2D.OverlapPoint(goal.transform.position);
@@ -23,7 +24,8 @@ public class GoalChecker : MonoBehaviour
                 correctBoxes++;
             }
         }
-
+        
+        //すべての箱がゴールに乗った場合
         if (correctBoxes == goals.Length)
         {
             Debug.Log("クリア！");
@@ -37,6 +39,7 @@ public class GoalChecker : MonoBehaviour
         }
     }
 
+    //次のステージ（シーン）に移動
     void LoadNextScene()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
